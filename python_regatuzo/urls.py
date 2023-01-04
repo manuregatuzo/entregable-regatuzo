@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from python_regatuzo.views import hola_mundo, otra_mas, fecha_actual, vista_con_edad, vista_con_template, saludo_desde_template 
+from python_regatuzo.views import hola_mundo, otra_mas, fecha_actual, vista_con_edad, vista_con_template, saludo_desde_template, index 
 
 urlpatterns = [
+    path('home/', index, name='index'),
     path('admin/', admin.site.urls),
     path('hola/', hola_mundo),
     path('otra/', otra_mas),
