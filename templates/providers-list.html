@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de Proveedores
+{% endblock %}
+
+    {% block content %}
+    <h1>Hola desde el template de listado de proveedores</h1>
+    <h2>Crear nuevo prestador</h2> <a href="/providers/providers-create/" class="btn btn-primary">Crear</a>
+
+    {% for provider in providers %}
+
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{provider.name}}</h5>
+        <p class="card-text"> Direccion {{provider.address}}</p>
+        <p>Telefono: {{provider.phone_number}}</p>
+        <a href="#" class="btn btn-primary">Detalle</a>
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}
