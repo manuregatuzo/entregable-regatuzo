@@ -12,4 +12,4 @@ Del lado de admin deberiamos crear un superuser utilizando los comandos en la co
 
 # Manuel Regatuzo
 
-Video explicando la navegacion
+Video explicando la navegacion https://drive.google.com/file/d/1YyUvix98wR4j420omikQJzt8L22RVmm-/view?usp=sharing
