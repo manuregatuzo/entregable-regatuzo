@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Actualizacion de usuario
+{% endblock %}
+
+{% block content %}
+<div style="padding-top: 10%;" >
+    <div class="mx-auto  text-center" style="width: 500px; padding-top: 2%; padding-bottom: 2%; border: 1px solid black; background-color: antiquewhite;">
+    <h1>Actualiza tus datos </h1>
+
+
+
+    {% if form %}
+
+
+    <form action="" method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <table>
+            {{form.as_table}}
+        </table> 
+
+        <button type="sumbit" class="btn btn-secondary btn-lg border" style="max-width: 10rem; background-color: black; padding: 5px;">Actualizar</button>
+    </form>
+{% endif %}
+
+
+</div>
+</div>
+
+{% endblock %} 

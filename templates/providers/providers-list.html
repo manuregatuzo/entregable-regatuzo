@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de Proveedores
+{% endblock %}
+
+{% block content %}
+<div class="mx-auto border-bottom py-4 text-center" style="width: 600px">
+    <h1>Listado de Proveedores activos</h1>
+</div> 
+{% if request.user.is_superuser %}  
+<div class="mx-auto border-bottom py-4 text-center">
+    <h2>Crear nuevo prestador</h2> <a href="/providers/providers-create/" class="btn btn-secondary py-2 btn-lg border" style="max-width: 10rem; background-color: black;">Crear</a>
+</div>
+{% endif %}
+    {% for provider in providers %}
+
+<div class="container">     
+    <div class="card" style="width: 20%; float: left;">
+        <img src="/media/{{provider.image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{provider.name}}</h5>
+        <p class="card-text"> Direccion: {{provider.address}}</p>
+        <p>Telefono: {{provider.phone_number}}</p>
+        {% if request.user.is_superuser %}
+        <a href="/providers/providers-update?edit={{provider.name}}" class="btn btn-outline-primary btn-block">Actualizar proveedor</a>
+        {% endif %}
+        </div>
+    </div>
+</div>
+    {% endfor %}
+
+
+
+{% endblock %}

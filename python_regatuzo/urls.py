@@ -15,12 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from python_regatuzo.views import index
+from python_regatuzo.views import index, us_info 
+from python_regatuzo.settings import MEDIA_ROOT, MEDIA_URL
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('home/', index, name='index'),
+    path('', index, name='index'),
     path('admin/', admin.site.urls),
+    path('nosotros', us_info),
     path('products/', include('products.urls')),
     path('providers/', include ('providers.urls')),
     path('orders/', include ('orders.urls')),
-]
+    path('users/', include ('users.urls')),
+
+]+ static(MEDIA_URL, document_root = MEDIA_ROOT)

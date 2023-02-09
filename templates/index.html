@@ -1,9 +1,45 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Index
+    Home
 {% endblock %}
 
 {% block content %}
-    <h1>Hola desde el indice</h1>
+<div class="mx-auto border-bottom py-4 text-center" style="width: 500px">
+    <h1>Bienvenidos a ENEAKIOSCO</h1>
+</div>
+{% if request.user.is_superuser %}
+<div class="mx-auto border-bottom py-4 text-center" style="width: 500px">
+    <h2>Aunque usted, {{message}} es Admin! Siempre sera bienvenido!</h2>
+</div>
+<h3 class="text-center py-5">Elija una opcion</h3>
+<div class="mx-auto text-center mt-5" style="min-width: 60rem">
+<a href="/products/list-product">
+    <button class="btn btn-secondary btn-lg border" style="min-width: 20rem; background-color: black;">
+    Ver los productos
+    </button>
+</a>
+</div>
+{% if request.user.is_superuser %}
+<div class="mx-auto text-center mt-5" style="width: 500px">
+<a href="/providers/providers-list">
+    <button class="btn btn-secondary btn-lg border" style="min-width: 20rem; background-color: black;">
+    Ver los proveedores
+    </button>
+</a>
+</div>
+{% endif %}
+
+{% else %}
+<div class="mx-auto border-bottom py-4 text-center" style="width: 500px">
+    <h2>Clickeando el boton puede acceder a los productos.</h2>
+</div>
+<div class="mx-auto text-center mt-5" style="min-width: 60rem">
+    <a href="/products/list-product">
+        <button class="btn btn-secondary btn-lg border" style="min-width: 20rem; background-color: black;">
+        Ver los productos
+        </button>
+    </a>
+    </div>
+{% endif %}
 {% endblock %}

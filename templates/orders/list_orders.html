@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de Ordenes
+{% endblock %}
+
+{% block content %} 
+    <div class="mx-auto border-bottom py-4 text-center" style="width: 600px">
+    <h1>Listado de ordenes</h1>
+</div>
+{% if request.user.is_superuser %} 
+    <div class="mx-auto border-bottom py-4 text-center">
+        <h2>Crear nueva orden</h2> <a href="/orders/create-order/" class="btn btn-secondary py-2 btn-lg border" style="max-width: 10rem; background-color: black;">Crear</a>
+    </div>
+    {% endif %}
+    {% for order in orders %}
+
+
+<div class="container">
+    <div class="card text-white bg-dark" style="width: 20%; float: left;">        
+        <div class="card-body">
+        <h5 class="card-title">El cliente: {{order.client}}</h5>
+        <p class="card-text"> Compro: {{order.product}}</p>
+        <a href="#" class="btn btn-outline-primary btn-block">Ver Detalle</a>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}

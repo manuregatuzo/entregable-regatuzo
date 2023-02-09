@@ -9,7 +9,7 @@ def list_orders(request):
     context = {
         'orders': orders
     }
-    return render(request, 'list_orders.html', context=context)
+    return render(request, 'orders/list_orders.html', context=context)
 
 
 
@@ -19,7 +19,7 @@ def create_order(request):
         context = {
             'form' : OrderForm()
         }
-        return render(request, 'create_order.html', context=context)
+        return render(request, 'orders/create_order.html', context=context)
 
     elif request.method == 'POST':
         form = OrderForm(request.POST)
@@ -39,4 +39,4 @@ def create_order(request):
                 'form_errors': form.errors,
                 'form' : OrderForm()
             }
-        return render(request, 'create_order.html', context=context)
+        return render(request, 'orders/create_order.html', context=context)

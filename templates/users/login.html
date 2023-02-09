@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container" style="padding-top: 10%">
+    <div class="mx-auto  text-center" style="width: 500px; padding-top: 5%; padding-bottom: 5%; border: 1px solid black; background-color: antiquewhite;">
+    <h1>Completa tus datos para loguearte </h1>
+
+
+
+    {% if form %}
+
+
+    <form action="" method="POST">
+
+        {% csrf_token %}
+
+        <table>
+            {{form.as_table}}
+        </table>
+        {% if errors %}
+            <p style="color: red;">{{errors}}</p>
+
+        {% endif %}
+
+
+
+        <button type="sumbit" class="btn btn-secondary py-2 btn-lg border" style="max-width: 10rem; background-color: black;">Ingresar</button>
+    </form>
+{% endif %}
+
+{% if form_errors %}
+    <h2>Errores</h2>
+    {{form_errors}}
+{% endif %}
+
+{% if message %}
+    {{message}}
+{% endif %}
+    </div>
+</div>
+
+{% endblock %} 

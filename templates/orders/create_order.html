@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Hola desde la creacion</h1>
+<div style="padding-top: 10%;" >
+    <div class="mx-auto  text-center" style="width: 500px; padding-top: 2%; padding-bottom: 2%; margin-left: 10%; border: 1px solid black; background-color: antiquewhite;">
+    <h1>Gestione sus nuevas ordenes</h1>
 
 
 
@@ -22,7 +24,7 @@
 
 
 
-        <button type="sumbit">Crear orden</button>
+        <button type="sumbit" class="btn btn-secondary py-2 btn-lg border" style="min-width: 8rem; background-color: black;">Crear orden</button>
     </form>
 {% endif %}
 
@@ -34,5 +36,6 @@
 {% if message %}
     {{message}}
 {% endif %}
-
+    </div>
+</div>
 {% endblock %} 
